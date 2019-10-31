@@ -7,6 +7,7 @@ import PrivateRoute from './PrivateRoute';
 
 // ? COMPONENTS
 import Login from '../components/Login';
+import Nav from '../components/Nav';
 
 const AppRouter = () => {
 
@@ -16,8 +17,13 @@ const AppRouter = () => {
     return (
         <Router history={history}>
             <>
+                {/* // * NAV AS THE DEFAULT HEADER
+                 */} 
+                 <Nav />
+
                 <Switch>
                     <Route exact path="/" component={Login} />
+                    <Route exact path="/register" />
                 </Switch>
             </>
         </Router>

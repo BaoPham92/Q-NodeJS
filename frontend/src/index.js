@@ -6,6 +6,3 @@ import './index.css';
 const jsx = (<AppRouter />)
 
 ReactDOM.render(jsx, document.getElementById('root'));
-
-
-
