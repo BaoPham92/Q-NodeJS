@@ -1,7 +1,7 @@
 import React from 'react';
 
 // TODO: USE FORM COMPONENT FOR SIGN-UP PARENT COMPONENT AS WELL
-const Form = ({ handleChange, handleSubmit }) => (
+const Form = ({ handleChange, handleSubmit, user }) => (
     <form onSubmit={handleSubmit}>
         <h1>Login</h1>
         <input onChange={handleChange} type='text' name='name' placeholder='Name' value={user.name} />
