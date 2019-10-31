@@ -1,6 +1,6 @@
 # About:
 ---
-A repository for building a NodeJS API (application programming interface.) with security vulnerable endpoints for SQL(i) testing.
+__*A repository for building a NodeJS API (application programming interface.) with security vulnerable endpoints for SQL(i) testing.*__
 
 ## Overview:
 ---
@@ -14,13 +14,13 @@ Participants are supplied with the objective of creating a SQL(injection) on a v
 ## Student Objectives:
 ---
 ```
->
->
->
+> Find and identify an vulnerable endpoint.
+
+> Successfully excute a SQL(i)njection dumping "flag" & "user" tables and user credentials (username & password) allowing students to access and update values for the "flag".
 ```
 
 # Instructor Guide:
 ---
-> Details here
-> Details here
-> Details here
+```
+> Learning objectives are to guide and instruct experience in finding exploits for SQL based endpoints for students.
+```
