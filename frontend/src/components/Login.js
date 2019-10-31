@@ -7,7 +7,7 @@ const Login = (props) => {
 
     // * HISTORY DETAILS
     const history = props.history;
-    const path = props.location.pathname;
+    const path = props.location && props.location.pathname;
 
     const [user, setUser] = useState({
         name: '',

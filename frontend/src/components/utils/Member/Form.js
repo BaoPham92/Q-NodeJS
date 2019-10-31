@@ -4,7 +4,7 @@ import React from 'react';
 const Form = ({ handleChange, handleSubmit, user, path }) => (
 
     // TODO: SWITCH FOR CHECKING TOKEN AUTHENTICATION
-    path = '/' ?
+    path === '/' ?
         (
             <>
                 <h1>Login</h1>

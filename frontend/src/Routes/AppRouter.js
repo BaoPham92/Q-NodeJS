@@ -22,8 +22,13 @@ const AppRouter = () => {
                  <Nav />
 
                 <Switch>
-                    <Route exact path="/" component={Login} />
+                    
+                    {/* {/members should be private route} */}
+                    <Route exact path="/members" />
+                    <Route exact path="/login" component={Login} />
                     <Route exact path="/register" />
+                    <Route exact path="/news" />
+                    <Route exact path="/about" />
                 </Switch>
             </>
         </Router>
