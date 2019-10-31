@@ -1,11 +1,8 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Link from 'react-router-dom';
 
-
-
-
-const Login = (props => {
+const Login = (props) => {
     const [user, setUser] = useState({
         name: '',
         password: '',
@@ -20,20 +17,14 @@ const Login = (props => {
         })
     }
 
-
     const handleSubmit = e => {
         e.preventDefault();
         axios.post('endpoint', user)
-        .then( response => {
-            console.log(response)
-            //getting a token or some such
-        })
+            .then(response => {
+                console.log(response)
+                //getting a token or some such
+            })
     }
-
-
-
-
-
 
     return (
 
@@ -44,23 +35,7 @@ const Login = (props => {
             <input onChange={handleChange} type='email' name='email' placeholder='Email' value={user.email} />
             <button type='submit'>Submit</button>
         </form>
-
-
-
-
-
-
-
-
-
-
-
     )
-
-
-
-
-
-})
+}
 
 export default Login;
