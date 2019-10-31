@@ -8,6 +8,9 @@ import PrivateRoute from './PrivateRoute';
 // ? COMPONENTS
 import Login from '../components/Login';
 import Nav from '../components/Nav';
+import News from '../components/News';
+import Members from '../components/Members'
+import About from '../components/About'
 
 const AppRouter = () => {
 
@@ -24,11 +27,11 @@ const AppRouter = () => {
                 <Switch>
                     
                     {/* {/members should be private route} */}
-                    <Route exact path="/members" />
+                    <PrivateRoute exact path="/members" component={Members}/>
                     <Route exact path="/login" component={Login} />
-                    <Route exact path="/register" />
-                    <Route exact path="/news" />
-                    <Route exact path="/about" />
+                    <Route exact path="/register" component={Login}/>
+                    <Route exact path="/news" component={News}/>
+                    <Route exact path="/about" component={About} />
                 </Switch>
             </>
         </Router>

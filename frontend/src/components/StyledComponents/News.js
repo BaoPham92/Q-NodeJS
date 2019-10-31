@@ -1,11 +1,5 @@
-import React from 'react'
+import styled from 'styled-components';
 
-const News = () => {
-    return (
-        <div>
-            
-        </div>
-    )
+export default {
+    
 }
-
-export default News
