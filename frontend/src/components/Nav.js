@@ -9,7 +9,7 @@ const Nav = (props) => {
     return (
         <>
             <style.ul>
-                <li><NavLink to="/about">About</NavLink></li>
+                <li><NavLink to="/about">About Us</NavLink></li>
                 <li><NavLink to="/news">News</NavLink></li>
                 <li><NavLink to="/members">Members</NavLink></li>
                 <li><NavLink to="/register">Register</NavLink></li>
