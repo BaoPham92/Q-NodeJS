@@ -16,6 +16,20 @@ const MemberContainer = styled.div`
     flex-wrap: wrap;
     justify-content: center;
     margin:0 auto;
+    align-items: center;
+`;
+
+const StyledH1 = styled.h1`
+    color: white;
+    padding: 2%;
+    font-size: 5 rem;
+`;
+
+const StyledDiv = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
 `;
 
 // const 
@@ -24,12 +38,12 @@ const MemberContainer = styled.div`
 const MemberWrapper = () => {
 
     return (
-    <>
-        <h1>Members</h1>
+    <StyledDiv>
+        <StyledH1>Members</StyledH1>
         <MemberContainer>
             {data.map(dictator => <Members data={dictator} />)}
         </MemberContainer>
-    </>
+    </StyledDiv>
     )
 }
 

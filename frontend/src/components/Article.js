@@ -11,6 +11,7 @@ const ArticleContainer = styled.div`
     width:60%;
     padding: 1%;
     border: 2px solid black;
+    background: #e3e3e3;
 
 `;
 

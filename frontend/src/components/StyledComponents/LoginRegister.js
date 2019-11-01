@@ -6,6 +6,7 @@ const container = styled.div`
     flex-direction: column;
     align-items: center;
     margin-top: 20vh;
+    color: white;
 `;
 
 const form = styled.form`

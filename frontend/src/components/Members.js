@@ -11,6 +11,7 @@ const MemberCard = styled.div`
     justify-content: space-between;
     padding: 2%;
     margin: 2%;
+    background: #e3e3e3;
 `;
 
 

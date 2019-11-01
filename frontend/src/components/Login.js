@@ -3,7 +3,7 @@ import axios from 'axios';
 import Form from './utils/Member/Form';
 
 const Login = (props) => {
-
+    console.log(props); 
     // * HISTORY DETAILS
     const history = props.history;
     const path = props.location && props.location.pathname;
@@ -24,12 +24,16 @@ const Login = (props) => {
 
     const handleSubmit = e => {
         e.preventDefault();
-        axios.post('endpoint', user)
-            .then(response => {
-                console.log(response)
-                //getting a token or some such
-            })
+        // axios.post('endpoint', user)
+        //     .then(response => {
+        //         console.log(response)
+        //         //getting a token or some such
+        //  })
+        localStorage.setItem("token","tempToken");
+        props.history.push("/members");
     }
+
+
 
     return (
         <Form
