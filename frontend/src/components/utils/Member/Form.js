@@ -16,7 +16,7 @@ const Form = ({ handleChange, handleSubmit, user, path }) => (
                     <style.input onChange={handleChange} type='email' name='email' placeholder='Email' value={user.email} />
                     <button type='submit'>Submit</button>
                 </style.form>
-            </style.container>
+            </style.container> 
         )
         :
         (

@@ -27,9 +27,7 @@ const MemberWrapper = () => {
     <>
         <h1>Members</h1>
         <MemberContainer>
-            {
-                data.map(dictator => <Members data={dictator} />)
-            }
+            {data.map(dictator => <Members data={dictator} />)}
         </MemberContainer>
     </>
     )
