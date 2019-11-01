@@ -5,7 +5,8 @@ const ul = styled.ul`
     flex-flow: row nowrap;
     justify-content: space-around;
 
-    background-color: darkred;
+    background-color: #3D3D3D;
+    border-bottom: 0.2rem solid #C3C3C3;
     height: 4.5vh;
 
     & > li {

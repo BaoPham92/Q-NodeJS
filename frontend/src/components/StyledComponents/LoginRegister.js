@@ -14,12 +14,12 @@ const form = styled.form`
     flex-direction: column;
     align-items: center;
 
-    background-color: #8b0000;
+    background-color: #3D3D3D;
     border-radius: 0.5rem;
     border: 1px solid darkred;
-    border-bottom: 1px solid #ffffff;
-    border-left: 0.5px solid #ffffff;
-    max-width: 50vw;
+    border-bottom: 0.2rem solid #C3C3C3;
+    border-left: 0.15rem solid #C3C3C3;
+    width: 30vw;
     margin: 0 auto;
     margin-top: 3vh;
     padding: 2% 6%;
@@ -40,7 +40,7 @@ const form = styled.form`
 
 const input = styled.input`
     border: 1px solid black;
-    margin: 5%;
+    margin: 3%;
     height: 1%;
 `;
 
