@@ -78,7 +78,7 @@ const articles =
     name: "Boingboing.net"
     },
     author: "Cory Doctorow",
-    title: "Relatives and cronies of Cambodia's dictator have bought "golden passports" from Cyprus and exfiltrated millions",
+    title: "Relatives and cronies of Cambodia's dictator have bought golden passports from Cyprus and exfiltrated millions",
     description: "Cambodia's long-serving dictator Hun Sen nearly lost power in 2013 when an opposition party mobilized over Facebook (Hun Sen recovered by mastering Facebook and using it to crush the opposition, whose leaders are now exiled. The scare prompted Hun Sen's inner…",
     url: "https://boingboing.net/2019/10/17/cross-border-cronyism.html",
     urlToImage: "https://i2.wp.com/media.boingboing.net/wp-content/uploads/2019/10/collage_1.jpg?fit=1200%2C675&ssl=1",

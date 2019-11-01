@@ -5,8 +5,7 @@ import Nav from './Nav';
 const About = () => {
     return (
         <div>
-            <Nav />
-            <Login />
+            <h1>WE LIKE DICTATORS, OK?!</h1>
         </div>
     )
 }
