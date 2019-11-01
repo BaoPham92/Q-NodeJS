@@ -2,9 +2,7 @@ import React from 'react'
 import Login from './Login.js';
 import Nav from './Nav';
 
-
-
-const HomeWrapper = () => {
+const About = () => {
     return (
         <div>
             <Nav />
@@ -13,4 +11,4 @@ const HomeWrapper = () => {
     )
 }
 
-export default HomeWrapper
+export default About

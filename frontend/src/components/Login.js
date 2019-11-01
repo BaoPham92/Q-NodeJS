@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import Link from 'react-router-dom';
 import Form from './utils/Member/Form';
 
 const Login = (props) => {
-    console.log(props.history)
+
+    // * HISTORY DETAILS
+    const history = props.history;
+    const path = props.location && props.location.pathname;
+
     const [user, setUser] = useState({
         name: '',
         password: '',
@@ -29,7 +32,12 @@ const Login = (props) => {
     }
 
     return (
-        <Form handleChange={handleChange} handleSubmit={handleSubmit} user={user}/>
+        <Form
+            handleChange={handleChange}
+            handleSubmit={handleSubmit}
+            user={user}
+            path={path}
+        />
     )
 }
 
