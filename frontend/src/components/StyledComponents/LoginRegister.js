@@ -27,10 +27,18 @@ const form = styled.form`
     & > button {
         margin-top: 1rem;
         padding: 0.1rem 1rem;
+        width: 10em;
+        height: 1.5em;
     }
 
     & > input, button {
-        border-radius: 1rem;
+        border-radius: 0.5rem;
+    }
+
+    & > input {
+        border-radius: 0.5rem;
+        width: 15em;
+        height: 2em;
     }
 
     & > input::placeholder {
