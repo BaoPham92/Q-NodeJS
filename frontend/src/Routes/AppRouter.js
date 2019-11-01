@@ -24,13 +24,11 @@ const AppRouter = () => {
                  */} 
                  <Nav />
 
-                <Switch>
-                    
-                    {/* {/members should be private route} */}
-                    <Route exact path="/members" component={MemberWrapper}/>
+                <Switch> 
+                    <PrivateRoute exact path="/members" component={MemberWrapper}/>
                     <Route exact path="/login" component={Login} />
                     <Route exact path="/register" component={Login}/>
-                    <Route exact path="/news" component={News}/>
+                    <PrivateRoute exact path="/news" component={News}/>
                     <Route exact path="/about" component={About} />
                 </Switch>
             </>
