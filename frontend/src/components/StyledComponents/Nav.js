@@ -6,12 +6,17 @@ const ul = styled.ul`
     justify-content: space-around;
 
     background-color: darkred;
+    height: 4.5vh;
 
     & > li {
+        display: flex;
+        align-items: center;
+
         list-style-type: none;
         padding: 0 1rem;
 
         & > a, > a:link, a:visited {
+            font-size: 1.6rem;
             color: white;
             text-decoration: none;
             border: none;
