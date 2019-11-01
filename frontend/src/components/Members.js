@@ -1,12 +1,13 @@
 import React from 'react';
 
-const Members = (props) => {
-    //props.name, props.image_url,country, email, age, 
+
+const Members = ({data}) => {
 
     return (
         <>
-            <h1>{props.name}</h1>
-            <div></div>
+            <h1>{data.first_name} {data.last_name}</h1>
+            <h2>{data.country}</h2>
+            <h4>{data.email}</h4>
         </>
     )
 }
