@@ -15,4 +15,4 @@ mysql -h localhost --user=root --password=itHeYAlOM -e "create database info;"
 mysql --host=localhost --user=root --password=itHeYAlOM info
 
 #loads the sql table into the database
-mysql info < cd ~/sql/info_members.sql
+mysql info < cd~/sql/info_members.sql
