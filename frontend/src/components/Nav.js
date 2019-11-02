@@ -1,14 +1,25 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { NavLink } from 'react-router-dom';
 
 // * STYLE-COMPONENT
 import style from './StyledComponents/Nav';
 
-const Nav = (props) => {
+const Nav = () => {
 
-    const token = localStorage.getItem('token')
+    //nav renders properly on signout. Does not conditionally render on login. useEffect should be triggering a rerender on change to local storage
+
+
+    // const token = localStorage.getItem('token')
+
+    const [token, setsToken] = useState(localStorage.getItem('token'))
 
     useEffect(() => {}, [token])
+
+    const resetToken = e => {
+        // e.preventDefault();
+        localStorage.setItem('token', '');
+        setsToken(localStorage.getItem('token'));
+    }
 
     return !!token === false ?
     (
@@ -29,6 +40,7 @@ const Nav = (props) => {
                 <li><NavLink to="/about">About Us</NavLink></li>
                 <li><NavLink to="/news">News</NavLink></li>
                 <li><NavLink to="/members">Members</NavLink></li>
+                <li><NavLink to='/' onClick={resetToken}>Log Out</NavLink></li>
             </style.ul>
         </>
     )

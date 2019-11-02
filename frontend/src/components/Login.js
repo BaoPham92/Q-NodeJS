@@ -9,9 +9,8 @@ const Login = (props) => {
     const path = props.location && props.location.pathname;
 
     const [user, setUser] = useState({
-        name: '',
+        username: '',
         password: '',
-        email: ''
     })
 
     const handleChange = e => {
@@ -30,7 +29,7 @@ const Login = (props) => {
         //         //getting a token or some such
         //  })
         localStorage.setItem("token","tempToken");
-        props.history.push("/members");
+        history.push("/members");
     }
 
 

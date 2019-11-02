@@ -11,7 +11,7 @@ import Nav from '../components/Nav';
 import News from '../components/News';
 import MemberWrapper from '../components/MemberWrapper.js'
 import About from '../components/About'
-import Landing from '../components/Landing';
+import Landing from '../components/landing/Landing.js';
 
 const AppRouter = () => {
 
