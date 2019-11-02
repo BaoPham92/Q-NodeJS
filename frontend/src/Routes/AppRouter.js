@@ -11,6 +11,7 @@ import Nav from '../components/Nav';
 import News from '../components/News';
 import MemberWrapper from '../components/MemberWrapper.js'
 import About from '../components/About'
+import Landing from '../components/Landing';
 
 const AppRouter = () => {
 
@@ -25,6 +26,7 @@ const AppRouter = () => {
                  <Nav />
 
                 <Switch> 
+                    <Route exact path="/" component={Landing} /> 
                     <PrivateRoute exact path="/members" component={MemberWrapper}/>
                     <Route exact path="/login" component={Login} />
                     <Route exact path="/register" component={Login}/>
