@@ -8,6 +8,7 @@ import PrivateRoute from './PrivateRoute';
 // ? COMPONENTS
 import Login from '../components/Login';
 import Nav from '../components/Nav';
+import Footer from '../components/Footer.js';
 import News from '../components/News';
 import MemberWrapper from '../components/MemberWrapper.js'
 import About from '../components/About'
@@ -24,6 +25,7 @@ const AppRouter = () => {
                 {/* // * NAV AS THE DEFAULT HEADER
                  */} 
                  <Nav />
+                 
 
                 <Switch> 
                     <Route exact path="/" component={Landing} /> 
@@ -33,6 +35,7 @@ const AppRouter = () => {
                     <PrivateRoute exact path="/news" component={News}/>
                     <Route exact path="/about" component={About} />
                 </Switch>
+                <Footer />
             </>
         </Router>
     )
