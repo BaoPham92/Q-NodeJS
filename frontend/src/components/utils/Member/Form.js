@@ -12,8 +12,8 @@ const Form = ({ handleChange, handleSubmit, user, path }) => (
             <style.container>
                 <h1>Login</h1>
                 <style.form onSubmit={handleSubmit}>
-                    <style.input onChange={handleChange} type='password' name='password' placeholder='Password' value={user.password} />
-                    <style.input onChange={handleChange} type='email' name='email' placeholder='Email' value={user.email} />
+                    <style.input onChange={handleChange} type='username' name='username' placeholder='Username' value={user.name} autoComplete="off"/>
+                    <style.input onChange={handleChange} type='password' name='password' placeholder='Password' value={user.password} autoComplete="off" />
                     <button type='submit'>Submit</button>
                 </style.form>
             </style.container> 
@@ -23,9 +23,8 @@ const Form = ({ handleChange, handleSubmit, user, path }) => (
             <style.container>
                 <h1>Register</h1>
                 <style.form onSubmit={handleSubmit}>
-                    <style.input onChange={handleChange} type='text' name='name' placeholder='Name' value={user.name} />
-                    <style.input onChange={handleChange} type='password' name='password' placeholder='Password' value={user.password} />
-                    <style.input onChange={handleChange} type='email' name='email' placeholder='Email' value={user.email} />
+                    <style.input onChange={handleChange} type='text' name='username' placeholder='Username' value={user.name} autoComplete="off"/>
+                    <style.input onChange={handleChange} type='password' name='password' placeholder='Password' value={user.password} autoComplete="off" />
                     <button type='submit'>Submit</button>
                 </style.form>
             </style.container>
@@ -33,3 +32,5 @@ const Form = ({ handleChange, handleSubmit, user, path }) => (
 )
 
 export default Form
+
+// <style.input onChange={handleChange} type='email' name='email' placeholder='Email' value={user.email} />
