@@ -11,7 +11,6 @@ import Nav from '../components/Nav';
 import Footer from '../components/Footer.js';
 import News from '../components/News';
 import MemberWrapper from '../components/MemberWrapper.js'
-import About from '../components/About'
 import Landing from '../components/landing/Landing.js';
 
 const AppRouter = () => {
@@ -33,7 +32,6 @@ const AppRouter = () => {
                     <Route exact path="/login" component={Login} />
                     <Route exact path="/register" component={Login}/>
                     <PrivateRoute exact path="/news" component={News}/>
-                    <Route exact path="/about" component={About} />
                 </Switch>
                 <Footer />
             </>

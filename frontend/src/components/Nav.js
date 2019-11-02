@@ -25,7 +25,7 @@ const Nav = () => {
     (
         <>
             <style.ul>
-                <li><NavLink to="/about">About Us</NavLink></li>
+                <li><NavLink to="/">Home</NavLink></li>
                 <li><NavLink to="/news">News</NavLink></li>
                 <li><NavLink to="/members">Members</NavLink></li>
                 <li><NavLink to="/register">Register</NavLink></li>
@@ -37,7 +37,7 @@ const Nav = () => {
     (
         <>
             <style.ul>
-                <li><NavLink to="/about">About Us</NavLink></li>
+                <li><NavLink to="/">Home</NavLink></li>
                 <li><NavLink to="/news">News</NavLink></li>
                 <li><NavLink to="/members">Members</NavLink></li>
                 <li><NavLink to='/' onClick={resetToken}>Log Out</NavLink></li>
