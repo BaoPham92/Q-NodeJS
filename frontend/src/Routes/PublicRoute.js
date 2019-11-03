@@ -7,14 +7,10 @@ export const PublicRoute = ({
     ...rest
 }) => (
         <Route {...rest} component={(props) => (
-            !!localStorage.token === false ? (
-                <>
-                    <Nav />
-                    <Component {...props} />
-                </>
-            ) : (
-                    <Redirect to="/" />
-                )
+            <>
+                <Nav />
+                <Component {...props} />
+            </>
         )} />
     )
 

@@ -11,7 +11,7 @@ const NavPrivate = (props) => {
                     <li><NavLink to="/">Home</NavLink></li>
                     <li><NavLink to="/news">News</NavLink></li>
                     <li><NavLink to="/members">Members</NavLink></li>
-                    <li><NavLink to='/' onClick={resetToken}>Log Out</NavLink></li>
+                    <li><NavLink to='/'>Log Out</NavLink></li>
                 </style.ul>
             </>
         )

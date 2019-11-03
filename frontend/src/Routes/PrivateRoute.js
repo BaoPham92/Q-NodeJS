@@ -7,7 +7,7 @@ export const PrivateRoute = ({
     ...rest
 }) => (
         <Route {...rest} component={(props) => (
-            !!localStorage.token === true ? (
+            !!localStorage.getItem('token') === true ? (
                 <>
                     <NavPrivate />
                     <Component {...props} />
