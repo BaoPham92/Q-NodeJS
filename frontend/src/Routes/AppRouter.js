@@ -22,6 +22,7 @@ const AppRouter = () => {
                     <PublicRoute exact path="/" component={Landing} />
                     <PublicRoute exact path="/login" component={Login} />
                     <PublicRoute exact path="/register" component={Login} />
+                    <PublicRoute exact path="/edit" component={Login} />
                     <PrivateRoute exact path="/members" component={MemberWrapper} />
                     <PrivateRoute exact path="/news" component={News} />
                 </Switch>

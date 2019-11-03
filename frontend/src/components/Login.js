@@ -26,7 +26,7 @@ const Login = (props) => {
         })
     }
 
-    const handleSubmit = e => {
+    const handleLogin = e => {
         e.preventDefault();
         // axios.post('endpoint', user)
         //     .then(response => {
@@ -37,13 +37,16 @@ const Login = (props) => {
         history.push("/members");
     }
 
+    // const handleSignup
+
+
 
 
     return (
         <FormSection>
             <Form
                 handleChange={handleChange}
-                handleSubmit={handleSubmit}
+                handleLogin={handleLogin}
                 user={user}
                 path={path}
             />

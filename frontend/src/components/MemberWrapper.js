@@ -1,10 +1,11 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import Login from './Login.js';
 import { data } from '../data';
 import styled from 'styled-components';
 
 // * COMPONENT IMPORTS
 import Members from './Members';
+import Axios from 'axios';
 
 // * Member Directory
 
@@ -33,6 +34,12 @@ const StyledDiv = styled.div`
 `;
 
 const MemberWrapper = () => {
+
+    useEffect(() => {
+        Axios.get()
+
+    })
+
 
     return (
     <StyledDiv>
