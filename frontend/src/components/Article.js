@@ -17,7 +17,7 @@ const ArticleContainer = styled.div`
 
 const Article = ({data}) => {
 
-    console.log(data);
+    // console.log(data);
     return (
         <ArticleContainer>
             <h1>{data.title}</h1>

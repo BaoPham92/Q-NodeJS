@@ -32,16 +32,13 @@ const StyledDiv = styled.div`
 
 `;
 
-// const 
-
-
 const MemberWrapper = () => {
 
     return (
     <StyledDiv>
         <StyledH1>Members</StyledH1>
         <MemberContainer>
-            {data.map(dictator => <Members data={dictator} />)}
+            {data.map((dictator, key) => <Members key={key} data={dictator} />)}
         </MemberContainer>
     </StyledDiv>
     )

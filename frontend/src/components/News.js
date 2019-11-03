@@ -16,9 +16,7 @@ const News = () => {
         <NewsContainer>
             <h1>News</h1>
             <div>
-                {
-                    articles.map(article => <Article data={article} />)
-                }
+                {articles.map((article, key) => <Article key={key} data={article} />)}
             </div>
         </NewsContainer>
     )

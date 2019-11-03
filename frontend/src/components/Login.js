@@ -3,7 +3,6 @@ import axios from 'axios';
 import Form from './utils/Member/Form';
 
 const Login = (props) => {
-    console.log(props); 
     // * HISTORY DETAILS
     const history = props.history;
     const path = props.location && props.location.pathname;

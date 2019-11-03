@@ -1,23 +1,21 @@
 import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
-import NavPrivate from '../components/NavPrivate';
+import Nav from '../components/Nav';
 
-export const PrivateRoute = ({
+export const PublicRoute = ({
     component: Component,
     ...rest
 }) => (
         <Route {...rest} component={(props) => (
-            !!localStorage.token === true ? (
+            !!localStorage.token === false ? (
                 <>
-                    <NavPrivate />
+                    <Nav />
                     <Component {...props} />
                 </>
             ) : (
-                    <Redirect to="/login" />
+                    <Redirect to="/" />
                 )
         )} />
     )
 
-export default PrivateRoute
-
-{/* // localStorage.getItem('token') */ }
+export default PublicRoute
