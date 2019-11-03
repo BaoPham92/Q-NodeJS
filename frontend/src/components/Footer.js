@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import {Image} from 'react-bootstrap';
+
 
 
 const FootContainer = styled.div`
@@ -10,8 +10,8 @@ const FootContainer = styled.div`
     background-color: #3D3D3D;
     border-bottom: 0.2rem solid #C3C3C3;
     border-top: 0.2rem solid #C3C3C3;
-    height: 24vh;
-    margin: 0;
+    height: 25vh;
+    margin-top: 0 auto;
     padding: 1rem;
     color: white;
 `;
@@ -63,16 +63,16 @@ const Footer = () => {
                 <StyledImage src = {require('./landing/assets/logo.jpg')} alt = 'logo' />
             </ImgBox>
             <FooterBox>
-            <Address>
-                <Info>Federation of Dictators</Info>
-                <Info>10 Submit Drive</Info>
-                <Info>ICC, The Hague</Info>
-                <Info>800.YOU.RULE</Info>
-            </Address>  
-            <Contact>
-                <p>E-MAIL: info@federationofdictators.org</p>
-                <h3>The Federation Of Dictators</h3>
-            </Contact>
+                <Address>
+                    <Info>Federation of Dictators</Info>
+                    <Info>10 Submit Drive</Info>
+                    <Info>ICC, The Hague</Info>
+                    <Info>800.YOU.RULE</Info>
+                </Address>  
+                <Contact>
+                    <p>E-MAIL: info@federationofdictators.org</p>
+                    <h3>The Federation Of Dictators</h3>
+                </Contact>
             </FooterBox>
             
         </FootContainer>

@@ -1,0 +1,1 @@
+Database scripts run the same thing as the SQL server code we already have, but adjusted for this API. And with some optimization :P

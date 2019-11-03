@@ -7,6 +7,10 @@ const container = styled.div`
     align-items: center;
     margin-top: 20vh;
     color: white;
+
+    h1{
+        color: black;
+    }
 `;
 
 const form = styled.form`
