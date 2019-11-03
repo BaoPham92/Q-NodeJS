@@ -1,6 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Form from './utils/Member/Form';
+import styled from 'styled-components';
+
+const FormSection = styled.section`
+    height: 50vh;
+    width: 100vw;
+`;
 
 const Login = (props) => {
     // * HISTORY DETAILS
@@ -34,12 +40,14 @@ const Login = (props) => {
 
 
     return (
-        <Form
-            handleChange={handleChange}
-            handleSubmit={handleSubmit}
-            user={user}
-            path={path}
-        />
+        <FormSection>
+            <Form
+                handleChange={handleChange}
+                handleSubmit={handleSubmit}
+                user={user}
+                path={path}
+            />
+        </FormSection>
     )
 }
 
