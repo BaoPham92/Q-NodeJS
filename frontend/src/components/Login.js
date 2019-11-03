@@ -16,6 +16,7 @@ const Login = (props) => {
     const [user, setUser] = useState({
         username: '',
         password: '',
+        killcount:'',
     })
 
     const handleChange = e => {

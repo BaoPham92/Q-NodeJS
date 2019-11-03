@@ -10,6 +10,8 @@ import style from '../../StyledComponents/LoginRegister';
 
 const Form = ({ handleChange, handleLogin, user, path }) => {
 
+    //state for bringing in dictator data for populating edit form fields
+
     // TODO: SWITCH FOR CHECKING TOKEN AUTHENTICATION
 
         if (path === '/login'){
@@ -29,7 +31,8 @@ const Form = ({ handleChange, handleLogin, user, path }) => {
                         <h1>Register</h1>
                         <style.form onSubmit={handleLogin}>
                             <style.input onChange={handleChange} type='text' name='username' placeholder='Username' value={user.name} autoComplete="off"/>
-                            <style.input onChange={handleChange} type='password' name='password' placeholder='Password' value={user.password} autoComplete="off" />
+                            <style.input onChange={handleChange} type='text' name='killcount' placeholder='Kill Count' value={user.killcount}autoComplete="off" />
+                            <style.input onChange={handleChange} type='password' name='password' placeholder='Password' value={user.password} autoComplete="off" /> 
                             <button type='submit'>Submit</button>
                         </style.form>
                     </style.container>
@@ -37,9 +40,10 @@ const Form = ({ handleChange, handleLogin, user, path }) => {
             } else if (path === '/edit'){
                 return (
                     <style.container>
-                        <h1>Register</h1>
+                        <h1>Edit</h1>
                         <style.form onSubmit={handleLogin}>
                             <style.input onChange={handleChange} type='text' name='username' placeholder='Username' value={user.name} autoComplete="off"/>
+                            <style.input onChange={handleChange} type='text' name='killcount' placeholder='Kill Count' value={user.killcount}autoComplete="off" />
                             <style.input onChange={handleChange} type='password' name='password' placeholder='Password' value={user.password} autoComplete="off" />
                             <button type='submit'>Submit</button>
                         </style.form>
