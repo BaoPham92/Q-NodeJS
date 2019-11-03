@@ -24,7 +24,7 @@ const Address = styled.div`
 `;
 const Info = styled.p`
     line-height: 1;
-    font-size: .8rem;
+    font-size: 1.2rem;
 `;
 
 const ImgBox = styled.div`
@@ -42,6 +42,7 @@ const Contact = styled.div`
     display: flex;
     flex-direction: column;
     font-size: .9rem;
+    margin-top:2vh;
     
 `;
 
@@ -63,16 +64,17 @@ const Footer = () => {
                 <StyledImage src = {require('./landing/assets/logo.jpg')} alt = 'logo' />
             </ImgBox>
             <FooterBox>
+                <Contact>
+                    <p>E-MAIL: info@FIST.org</p>
+                    <h4>Fédération Internationale Des
+                    Sanctionnés Tyrans </h4>
+                </Contact>
                 <Address>
                     <Info>Federation of Dictators</Info>
                     <Info>10 Submit Drive</Info>
                     <Info>ICC, The Hague</Info>
                     <Info>800.YOU.RULE</Info>
                 </Address>  
-                <Contact>
-                    <p>E-MAIL: info@federationofdictators.org</p>
-                    <h3>The Federation Of Dictators</h3>
-                </Contact>
             </FooterBox>
             
         </FootContainer>

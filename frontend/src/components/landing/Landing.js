@@ -1,6 +1,5 @@
 import React from 'react';
 import {Carousel, Button, Image} from 'react-bootstrap';
-import CarouselCaption from 'react-bootstrap/CarouselCaption';
 import styled from 'styled-components';
 
 
@@ -15,12 +14,13 @@ const Container = styled.div`
 
 const CarouselImg = styled.img`
     height: 400px;
+    width: 100%;
     
 `;
 const StyledDiv = styled.div`
     display:flex
     background: white;
-    border:1px solid black;
+    
 
 `;
 
@@ -31,7 +31,7 @@ const ContentDiv = styled.div`
     align-items: center;
     justify-content: center;
     padding: 2%;
-    width:60%;
+    width:60vw;
     text-align:center;
     
 
@@ -55,7 +55,9 @@ const ButtonDiv = styled.div`
         height: 50px;
     }
 `;
-
+ const HeaderSection = styled.div`
+    width: 100%; 
+ `;
 
 const SectionContainer = styled.section`
     display:flex;
@@ -63,7 +65,7 @@ const SectionContainer = styled.section`
     padding: 2%;
     margin:1% 0 1% 0;
     width:97%;
-    border: 1px solid black;
+    
 `;
 
 const BlogCard = styled.div`
@@ -72,12 +74,16 @@ const BlogCard = styled.div`
     align-items: center;
     text-align: center;
     width: 30%
-    min-height: 300px;
+    max-height: 500px;
     border: 1px solid black;
+
+    h2 {
+        margin-top: 5%;
+    }
 
     h4{
         text-align: left-align;
-        margin-top: 3%;
+        margin-top: 10%;
     }
 
 
@@ -88,6 +94,10 @@ const BlogCard = styled.div`
             width:100%;
             max-height: 100%; 
         }
+    }
+
+    p{
+        font-weight: bold;
     }
 
    
@@ -108,17 +118,16 @@ const Landing = (props) => {
 
     return (
         <Container> 
-            <section>
+            <HeaderSection>
                 <Carousel className='container' >
                         <Carousel.Item>
                             <CarouselImg src={require('./assets/thegangcartoon.jpeg')}
-                                className="d-block w-100"
                                 alt="Gang of Dictators"
                             />
                             <StyledDiv>
                                 <ContentDiv>
-                                    <h1>Join The REAL Squad</h1>
-                                    <h2>Join The Largest International Professional Group For Dictators</h2>
+                                    <h1>The Gang's All Here</h1>
+                                    <h2>Join F.I.S.T, The Largest International Professional Group For Dictators</h2>
                                 </ContentDiv>
                                 <ButtonDiv>
                                     <Button variant="secondary" onClick={buttonClick}>
@@ -162,7 +171,7 @@ const Landing = (props) => {
                         </StyledDiv> 
                     </Carousel.Item>
                 </Carousel> 
-            </section>
+            </HeaderSection>
             <SectionContainer> 
                 <BlogCard>
                     <p>Blog</p>

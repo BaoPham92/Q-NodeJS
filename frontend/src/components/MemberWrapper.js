@@ -20,7 +20,7 @@ const MemberContainer = styled.div`
 `;
 
 const StyledH1 = styled.h1`
-    color: white;
+    color: Black;
     padding: 2%;
     font-size: 5 rem;
 `;
@@ -36,7 +36,7 @@ const MemberWrapper = () => {
 
     return (
     <StyledDiv>
-        <StyledH1>Members</StyledH1>
+        <StyledH1>Member Directory</StyledH1>
         <MemberContainer>
             {data.map((dictator, key) => <Members key={key} data={dictator} />)}
         </MemberContainer>
