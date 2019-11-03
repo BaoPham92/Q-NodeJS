@@ -1,10 +1,10 @@
 import React from 'react';
 import { Router, Switch } from 'react-router-dom';
-import { createBrowserHistory } from 'history';
 
 // ? ROUTES
 import PrivateRoute from './PrivateRoute';
 import PublicRoute from './PublicRoute';
+import history from '../components/utils/browserHistory';
 
 // ? COMPONENTS
 import Login from '../components/Login';
@@ -13,8 +13,6 @@ import News from '../components/News';
 import MemberWrapper from '../components/MemberWrapper.js'
 import Landing from '../components/landing/Landing.js';
 
-// * HISTORY OBJ
-const history = createBrowserHistory();
 
 const AppRouter = () => {
     return (
