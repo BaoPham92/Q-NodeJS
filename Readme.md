@@ -24,3 +24,8 @@ Participants are supplied with the objective of creating a SQL(injection) on a v
 ```
 > Learning objectives are to guide and instruct experience in finding exploits for SQL based endpoints for students.
 ```
+# Repository Notes:
+---
+```
+> From Joseph: The "API" folder is the section that is built around the unsecure API objective of the hackathon, whereas the "login" folder is the section that is built around the SQL(i) injection objective of the hackathon. Neither are related and do not depend on each other and do not have the same themes. They are 2 completely different projects.
+```
