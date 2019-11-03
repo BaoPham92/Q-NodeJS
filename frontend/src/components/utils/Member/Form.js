@@ -11,7 +11,6 @@ import style from '../../StyledComponents/LoginRegister';
 const Form = ({ handleChange, handleLogin, user, path }) => {
 
     //state for bringing in dictator data for populating edit form fields
-
     // TODO: SWITCH FOR CHECKING TOKEN AUTHENTICATION
 
         if (path === '/login'){

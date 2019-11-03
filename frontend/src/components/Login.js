@@ -19,6 +19,9 @@ const Login = (props) => {
         killcount:'',
     })
 
+    const port = process.env.PORT || 5000;
+
+
     const handleChange = e => {
         e.preventDefault();
         setUser({
@@ -33,12 +36,55 @@ const Login = (props) => {
         //     .then(response => {
         //         console.log(response)
         //         //getting a token or some such
-        //  })
+        //         localStorage.setItem("token","tempToken");
+        //     })
+        //     .then(() => {
+        //         history.push("/members")
+        //     })
+        //      .catch(err => alert(console.log(err)))
+
         localStorage.setItem("token","tempToken");
         history.push("/members");
     }
 
     // const handleSignup
+
+    const handleSignup = e => {
+        e.preventDefault();
+
+        // axios.post(`localhost:${port}/`, user)
+        // .then(response => {
+        //     console.log(response)
+        //     history.push('/login')
+        // })
+        // .catch(err => alert(console.log(err)))
+
+
+        localStorage.setItem("token","tempToken");
+        history.push("/members");
+    };
+
+
+    //const handleUpdate
+
+    const handleEdit = e => {
+        e.preventDefault();
+
+        axios.put(`localhost:${port}:${user.id}`, user)
+        .then(response => {
+            console.log(response)
+            history.push('/login')
+        })
+        .catch(err => alert(console.log(err)))
+    }
+
+    const handleDelete = e => {
+        e.preventDefault();
+
+        axios.delete(`localhost:${port}/${user.id}`, user.id)
+        .then(response =>  history.push('/members'))
+        .catch(err => console.log(err))
+    }
 
 
 
@@ -48,6 +94,9 @@ const Login = (props) => {
             <Form
                 handleChange={handleChange}
                 handleLogin={handleLogin}
+                handleSignup={handleSignup}
+                handleEdit={handleEdit}
+                handleDelete={handleDelete}
                 user={user}
                 path={path}
             />
