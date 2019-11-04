@@ -21,9 +21,25 @@ const MemberCard = styled.div`
     //     <h1>{data.username}</h1>
     //     <h2>{data.killcount}</h2>
     //     <h4>User ID: {data.id}</h4>
+    //     <button>Edit</button>
     // </MemberCard>
 
+
 const Members = ({data}) => {
+
+    // const [member, setMember] = useState({
+    //     username:data.username,
+    //     killcount: data.killcount,
+    //     id: data.id,
+    // })
+ 
+
+
+    // const handleClick = e => {
+    //     e.preventDefault();
+
+
+    // }
 
     return (
         <MemberCard>

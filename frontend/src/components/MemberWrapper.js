@@ -33,7 +33,7 @@ const StyledDiv = styled.div`
 
 `;
 
-const MemberWrapper = () => {
+const MemberWrapper = (props) => {
 
     const [dictators, setDictators] = useState([]);
 
@@ -52,7 +52,7 @@ const MemberWrapper = () => {
     <StyledDiv>
         <StyledH1>Member Directory</StyledH1>
         <MemberContainer>
-            {data.map((item, key) => <Members key={key} data={item} />)}
+            {data.map((item, key) => <Members {...props} key={key} data={item}  />)}
         </MemberContainer>
     </StyledDiv>
     )

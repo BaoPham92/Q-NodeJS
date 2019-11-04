@@ -8,7 +8,14 @@ import style from '../../StyledComponents/LoginRegister';
 // Notes: 
 // Need an update version of the form. ternary needs refactor to if-elseif
 
-const Form = ({ handleChange, handleLogin, user, path }) => {
+const Form = ({ handleChange, 
+    handleLogin, 
+    user, 
+    path,
+    handleSignup,
+    handleEdit,
+    handleDelete
+    }) => {
 
     //state for bringing in dictator data for populating edit form fields
     // TODO: SWITCH FOR CHECKING TOKEN AUTHENTICATION
