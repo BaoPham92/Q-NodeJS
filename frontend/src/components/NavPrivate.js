@@ -5,7 +5,7 @@ import history from './utils/browserHistory';
 // * STYLE-COMPONENT
 import style from './StyledComponents/Nav';
 
-const NavPrivate = (props) => {
+const NavPrivate = () => {
 
         const resetToken = e => {
             e.preventDefault();

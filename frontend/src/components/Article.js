@@ -15,9 +15,8 @@ const ArticleContainer = styled.div`
 
 `;
 
-const Article = ({data}) => {
+const Article = ({ data }) => {
 
-    // console.log(data);
     return (
         <ArticleContainer>
             <h1>{data.title}</h1>
@@ -29,10 +28,3 @@ const Article = ({data}) => {
 }
 
 export default Article;
-
-
-
-//data.source.name
-//data.author
-//data.title
-//data.content

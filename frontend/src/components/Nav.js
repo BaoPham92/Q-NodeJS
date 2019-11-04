@@ -4,16 +4,14 @@ import { NavLink } from 'react-router-dom';
 // * STYLE-COMPONENT
 import style from './StyledComponents/Nav';
 
-const Nav = (props) => {
-
+const Nav = () => {
 
     return (
         <>
-           
             <style.ul>
                 <li>
                     <div>
-                        <img src = {require('./landing/assets/logo.jpg')} alt = {'logo'} />
+                        <img src={require('./landing/assets/logo.jpg')} alt={'logo'} />
                         <p>Fédération Internationale Des
                         Sanctionnés Tyrans </p>
                     </div>

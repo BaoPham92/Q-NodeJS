@@ -13,7 +13,6 @@ import News from '../components/News';
 import MemberWrapper from '../components/MemberWrapper.js'
 import Landing from '../components/landing/Landing.js';
 
-
 const AppRouter = () => {
     return (
         <Router history={history}>

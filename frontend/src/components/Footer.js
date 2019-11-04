@@ -1,8 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 
-
-
 const FootContainer = styled.div`
     display: flex;
     justify-content: space-evenly;
@@ -22,6 +20,7 @@ const Address = styled.div`
     flex-direction: column;
     
 `;
+
 const Info = styled.p`
     line-height: 1;
     font-size: 1.2rem;
@@ -34,10 +33,12 @@ const ImgBox = styled.div`
     width:30%;
     
 `;
+
 const StyledImage = styled.img`
     width: 150px;
     border-radius: 100px;
 `;
+
 const Contact = styled.div`
     display: flex;
     flex-direction: column;
@@ -53,15 +54,12 @@ const FooterBox = styled.div`
     justify-content: space-around;
 `;
 
-
-
-
 const Footer = () => {
 
     return (
         <FootContainer>
             <ImgBox>
-                <StyledImage src = {require('./landing/assets/logo.jpg')} alt = 'logo' />
+                <StyledImage src={require('./landing/assets/logo.jpg')} alt='logo' />
             </ImgBox>
             <FooterBox>
                 <Contact>

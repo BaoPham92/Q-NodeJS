@@ -1,11 +1,10 @@
 import React, {useEffect, useState} from 'react'
-import Login from './Login.js';
 import { data } from '../data';
 import styled from 'styled-components';
 
 // * COMPONENT IMPORTS
 import Members from './Members';
-import Axios from 'axios';
+import axios from 'axios';
 
 // * Member Directory
 
@@ -37,10 +36,11 @@ const MemberWrapper = (props) => {
 
     const [dictators, setDictators] = useState([]);
 
+    // ? ENV FILE?
     const port = process.env.PORT || 5000;
 
     useEffect(() => {
-        Axios.get(`http://localhost:${port}/`)
+        axios.get(`http://localhost:${port}/`)
         .then(dictators => {
             setDictators(dictators)
         })
