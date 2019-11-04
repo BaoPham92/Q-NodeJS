@@ -35,17 +35,24 @@ const StyledDiv = styled.div`
 
 const MemberWrapper = () => {
 
-    useEffect(() => {
-        Axios.get()
+    const [dictators, setDictators] = useState([]);
 
-    })
+    const port = process.env.PORT || 5000;
+
+    useEffect(() => {
+        Axios.get(`http://localhost:${port}/`)
+        .then(dictators => {
+            setDictators(dictators)
+        })
+        .catch(err => console.log(err) )
+    },[]);
 
 
     return (
     <StyledDiv>
         <StyledH1>Member Directory</StyledH1>
         <MemberContainer>
-            {data.map((dictator, key) => <Members key={key} data={dictator} />)}
+            {data.map((item, key) => <Members key={key} data={item} />)}
         </MemberContainer>
     </StyledDiv>
     )

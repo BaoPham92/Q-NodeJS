@@ -16,6 +16,12 @@ const MemberCard = styled.div`
     background: #e3e3e3;
 `;
 
+//CARD NEEDS TO BE MODIFIED FOR DB DATA:
+    // <MemberCard>
+    //     <h1>{data.username}</h1>
+    //     <h2>{data.killcount}</h2>
+    //     <h4>User ID: {data.id}</h4>
+    // </MemberCard>
 
 const Members = ({data}) => {
 
