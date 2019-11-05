@@ -1,19 +1,3 @@
-import React from 'react'
-
-const DangerouslySet = () => {
-    return (
-        <div>
-            
-        </div>
-    )
-}
-
-export default DangerouslySet
-
-
-
-
-
 // function MyComponent() {
 //     const title = response.from.backend.title;
 //     return <div dangerouslySetInnerHTML={{__html: title}} />; // BAD - potential XSS attack could happened
@@ -35,7 +19,7 @@ const [query, setQuery] = useState({
 
     const handleQuery = e => {
         e.preventDefault();
-        setQuery(e.target.value);
+        setQuery({[e.target.name]: e.target.value});
     }
 
     const handleQuerySubmit = e => {
@@ -46,6 +30,7 @@ const [query, setQuery] = useState({
         <div>
             <input 
                 type="search"
+                name="string"
                 value={query.string}
                 onChange={handleQuery}
                 placeholder='Search Members'
