@@ -112,6 +112,7 @@ const Landing = (props) => {
                             <ContentDiv>
                                 <h1>The Gang's All Here</h1>
                                 <h2>Join F.I.S.T, The Largest International Professional Group For Dictators</h2>
+                                <img src={'./assets/thegangcartoon.jpeg'} alt=""/>
                             </ContentDiv>
                             <ButtonDiv>
                                 <Button variant="secondary" onClick={buttonClick}>

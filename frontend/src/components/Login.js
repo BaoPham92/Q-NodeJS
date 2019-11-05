@@ -9,18 +9,17 @@ const FormSection = styled.section`
 `;
 
 const Login = (props) => {
+
     // * HISTORY DETAILS
     const history = props.history;
     const path = props.location && props.location.pathname;
+    const port = process.env.PORT || 5000;
 
     const [user, setUser] = useState({
         username: '',
         password: '',
-        killcount:'',
+        killcount: '',
     })
-
-    const port = process.env.PORT || 5000;
-
 
     const handleChange = e => {
         e.preventDefault();
@@ -30,68 +29,69 @@ const Login = (props) => {
         })
     }
 
-    const handleLogin = e => {
+    const handleLoginSQLI = e => {
         e.preventDefault();
-        // axios.post('endpoint', user)
-        //     .then(response => {
-        //         console.log(response)
-        //         //getting a token or some such
-        //         localStorage.setItem("token","tempToken");
-        //     })
-        //     .then(() => {
-        //         history.push("/members")
-        //     })
-        //      .catch(err => alert(console.log(err)))
-
-        localStorage.setItem("token","tempToken");
-        history.push("/members");
+        axios.post(`http://localhost:${port}/login`, user)
+            .then(response => {
+                console.log(response)
+                //getting a token or some such
+                localStorage.setItem("token", "tempToken");
+            })
+            .then(() => {
+                history.push("/members")
+            })
+            .catch(err => {
+                alert(`There was an error logging in: ${err}`)
+            })
+            // localStorage.setItem("token", "tempToken");
+            // history.push("/members");
     }
 
     // const handleSignup
 
-    const handleSignup = e => {
+    const handleSignupSQLI = e => {
         e.preventDefault();
 
-        // axios.post(`localhost:${port}/`, user)
+        // axios.post(`http://localhost:5000/register`, user)
         // .then(response => {
         //     console.log(response)
         //     history.push('/login')
         // })
         // .catch(err => alert(console.log(err)))
+        alert(`We are no longer accepting new members.`)
 
-
-        localStorage.setItem("token","tempToken");
-        history.push("/members");
+        // localStorage.setItem("token","tempToken");
+        history.push("/");
     };
 
 
     //const handleUpdate
-
+    //if cookie is coming, replace with axiosAuth and change localStorage to sessionStorage
     const handleEdit = e => {
         e.preventDefault();
 
         axios.put(`localhost:${port}:${user.id}`, user)
-        .then(response => {
-            console.log(response)
-            history.push('/login')
-        })
-        .catch(err => alert(console.log(err)))
+            .then(response => {
+                console.log(response)
+                history.push('/login')
+            })
+            .catch(err => alert(console.log(err)))
     }
 
     const handleDelete = e => {
         e.preventDefault();
 
         axios.delete(`localhost:${port}/${user.id}`, user.id)
-        .then(response =>  history.push('/members'))
-        .catch(err => console.log(err))
+            .then(response => history.push('/members'))
+            .catch(err => console.log(err))
     }
 
     return (
         <FormSection>
             <Form
                 handleChange={handleChange}
-                handleLogin={handleLogin}
-                handleSignup={handleSignup}
+                handleLogin={handleLoginSQLI}
+                handleSignup={handleSignupSQLI}
                 handleEdit={handleEdit}
                 handleDelete={handleDelete}
                 user={user}

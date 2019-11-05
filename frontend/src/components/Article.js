@@ -7,12 +7,11 @@ const ArticleContainer = styled.div`
     flex-direction: column;
     margin: 0 auto;
     margin-top: 2%;
-    margin-bottom:2%;
-    width:60%;
+    margin-bottom: 2%;
+    width: 60%;
     padding: 1%;
     border: 2px solid black;
     background: #e3e3e3;
-
 `;
 
 const Article = ({ data }) => {
