@@ -18,7 +18,7 @@ const [query, setQuery] = useState({
 });
 
     const handleQuery = e => {
-        e.preventDefault();
+        // e.preventDefault();
         setQuery({[e.target.name]: e.target.value});
     }
 
