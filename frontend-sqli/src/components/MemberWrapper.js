@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react'
+import React, { useEffect, useState } from 'react'
 import { data } from '../data';
 import styled from 'styled-components';
 
@@ -38,23 +38,22 @@ const MemberWrapper = (props) => {
 
     // ? ENV FILE?
     const port = process.env.PORT || 5000;
-
     useEffect(() => {
         axios.get(`http://localhost:${port}/`)
-        .then(dictators => {
-            setDictators(dictators)
-        })
-        .catch(err => console.log(err) )
-    },[]);
+            .then(dictators => {
+                setDictators(dictators)
+            })
+            .catch(err => console.log(err))
+    }, []);
 
 
     return (
-    <StyledDiv>
-        <StyledH1>Member Directory</StyledH1>
-        <MemberContainer>
-            {data.map((item, key) => <Members {...props} key={key} data={item}  />)}
-        </MemberContainer>
-    </StyledDiv>
+        <StyledDiv>
+            <StyledH1>Member Directory</StyledH1>
+            <MemberContainer>
+                {data.map((item, key) => <Members {...props} key={key} data={item} />)}
+            </MemberContainer>
+        </StyledDiv>
     )
 }
 

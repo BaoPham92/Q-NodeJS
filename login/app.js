@@ -1,14 +1,10 @@
 var express = require('express');
-var login =require('./routes/loginroutes');
 var path = require('path');
 var bodyParser = require('body-parser');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
-
-
 var index = require('./routes/index');
-
 var app = express();
 
 app.set('views', path.join(__dirname, 'views'));

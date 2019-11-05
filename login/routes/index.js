@@ -2,10 +2,10 @@ var express = require('express');
 var router = express.Router();
 var mysql = require('mysql');
 var connection = mysql.createConnection({
-  host: 'localhost:8000',
+  host: 'localhost',
   user: 'localhost',
   password: 'itHeYAlOM',
-  database: 'Members' || 'info'
+  database: 'info'
 });
 
 connection.connect(function (err) {
@@ -18,13 +18,12 @@ connection.connect(function (err) {
 
 const jsonModifier = param => JSON.parse(JSON.stringify(param))
 
-router.get('/', (req, res) => {
+router.get('/users', (req, res) => {
   connection.query('SELECT * FROM Members', (error, rows, fields) => {
     !!rows === true ? 
     res.status(200).json(jsonModifier(rows)) :
     res.status(404).json({ errorMessage: 'NO DATA FOR U' })
   })
-  
 })
 
 router.post('/register', function (req, res) {
