@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react'
+import React, { useEffect, useState } from 'react'
 import { data } from '../data';
 import styled from 'styled-components';
 
@@ -39,22 +39,33 @@ const MemberWrapper = (props) => {
     // ? ENV FILE?
     const port = process.env.PORT || 5000;
 
-    useEffect(() => {
-        axios.get(`http://localhost:${port}/`)
-        .then(dictators => {
-            setDictators(dictators)
-        })
-        .catch(err => console.log(err) )
-    },[]);
+    useEffect((prev) => {
+
+        // TODO: WHEN EDITING URL TO LOCALHOST:3000/USERS FROM LOCALHOST:3000/USERS/INVALID
+        // TODO: THEN PING LOCALHOST:5000 AND RETURN DATA AS A DUMP FOR STUDENTS
+        // TODO: CREATE A USER CALLED LOCALHOST:5000
+
+        // TODO: THEN USING THE DISCLOSED CREDS, CREATE ANOTHER PATH / URL TO FLAG 'GET' REQUEST
+        // TODO: THE DISCLOSED CREDENTIALS WILL NEED A TOKEN TO PROPERLY NAVIGATE THE FRONT END
+
+        // TODO: OR WE CAN DO WHAT MATT SAID.
+
+        // console.log(prev, props)
+        // axios.get(`http://localhost:${port}/`)
+        //     .then(dictators => {
+        //         setDictators(dictators)
+        //     })
+        //     .catch(err => console.log(err))
+    }, []);
 
 
     return (
-    <StyledDiv>
-        <StyledH1>Member Directory</StyledH1>
-        <MemberContainer>
-            {data.map((item, key) => <Members {...props} key={key} data={item}  />)}
-        </MemberContainer>
-    </StyledDiv>
+        <StyledDiv>
+            <StyledH1>Member Directory</StyledH1>
+            <MemberContainer>
+                {data.map((item, key) => <Members {...props} key={key} data={item} />)}
+            </MemberContainer>
+        </StyledDiv>
     )
 }
 
