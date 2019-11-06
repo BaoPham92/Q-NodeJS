@@ -38,9 +38,8 @@ const [query, setQuery] = useState({
             <button>Search</button>
             <div 
             dangerouslySetInnerHTML={
-                {__html: `<div>${query.string}</div>`}
+                {__html: `<div ${query.string} />`}
             }
-            
             />   
         </div>
     )
