@@ -5,6 +5,9 @@ var connection = mysql.createConnection({
   host: 'localhost',
   user: 'localhost',
   password: 'itHeYAlOM',
+  // host: 'localhost',
+  // user: 'root',
+  // password: 'password',
   database: 'info'
 });
 
@@ -19,7 +22,7 @@ connection.connect(function (err) {
 const jsonModifier = param => JSON.parse(JSON.stringify(param))
 
 router.get('/users', (req, res) => {
-  connection.query('SELECT * FROM Members', (error, rows, fields) => {
+  connection.query('SELECT * FROM users', (error, rows, fields) => {
     !!rows === true ? 
     res.status(200).json(jsonModifier(rows)) :
     res.status(404).json({ errorMessage: 'NO DATA FOR U' })
@@ -30,13 +33,12 @@ router.post('/register', function (req, res) {
   console.log("req", req.body);
   var today = new Date();
   var Members = {
-    "name": req.body.name,
-    "email": req.body.email,
+    "username": req.body.username,
     "password": req.body.password,
     "created": today,
     "modified": today
   };
-  connection.query('INSERT INTO Members SET ?', Members, function (error, results, fields) {
+  connection.query('INSERT INTO users SET ?', Members, function (error, results, fields) {
     if (error) {
       console.log("error ocurred", error);
       res.send({
@@ -56,9 +58,9 @@ router.post('/register', function (req, res) {
 
 router.post('/login', function (req, res) {
 
-  var email = req.body.email;
+  var username = req.body.username;
   var password = req.body.password;
-  connection.query('SELECT * FROM Members WHERE email = ?', [email], function (error, results, fields) {
+  connection.query('SELECT * FROM users WHERE username = ?', [username], function (error, results, fields) {
     if (error) {
       // console.log("error ocurred",error);
       res.send({
