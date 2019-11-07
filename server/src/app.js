@@ -24,9 +24,9 @@ app.get('/users', async (req, res) => {
     console.log(`FETCHING USER DATA`)
 
     const connection = mysql.createConnection({
-        host: 'localhost:8000',
+        host: 'localhost',
         user: 'root',
-        password: 'password',
+        password: 'itHeYAlOM',
         database: 'info'
     });
 
