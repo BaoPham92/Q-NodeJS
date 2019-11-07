@@ -1,31 +1,30 @@
 const express = require('express');
 const router = express.Router();
-// const mysqlConnection  = require('../database.js');
+const mysqlConnection  = require('../database.js');
 
 // open endpoint to get a dump of user table with username/hashed pw/salt
 router.get('/users', async (req, res) => {
-  // mysqlConnection.query('SELECT * FROM users', (err, rows, fields) => {
-  //   if(!err) {
-  //     res.json(rows);
-  //   } else {
-  //     console.log(err);
-  //   }
-  // });  
-    console.log('USE ME', req)
-    await res.status(200).json({ Truth: `YOU HIT THE USER ENDPOINT` })
-    res.end()
+  mysqlConnection.query('SELECT * FROM users', (err, rows, fields) => {
+    if(!err) {
+      res.json(rows);
+    } else {
+      console.log(err);
+    }
+  });  
+    // console.log('USE ME', req)
+    // await res.status(200).json({ Truth: `YOU HIT THE USER ENDPOINT` })
+    // res.end()
 });
 
 //open endpoint to access the flag file
 router.get('/users/flag', (req, res) => {
-  // mysqlConnection.query('SELECT * FROM flag', (err, rows, fields) => {
-  //   if(!err) {
-  //     res.json(rows);
-  //   } else {
-  //     console.log(err);
-  //   }
-  // });
-    console.log('console');  
+  mysqlConnection.query('SELECT * FROM flag', (err, rows, fields) => {
+    if(!err) {
+      res.json(rows);
+    } else {
+      console.log(err);
+    }
+  }); 
 });
 
 router.get('/:id', (req, res) => {
@@ -51,14 +50,14 @@ router.delete('/:id', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-  const {id, name} = req.body;
-  console.log(id, name);
+  const {id, username} = req.body;
+  console.log(id, username);
   const query = `
     SET @id = ?;
-    SET @name = ?;
-    CALL dictatorsAddOrEdit(@id, @name);
+    SET @username = ?;
+    CALL dictatorsAddOrEdit(@id, @username);
   `;
-  mysqlConnection.query(query, [id, name], (err, rows, fields) => {
+  mysqlConnection.query(query, [id, username], (err, rows, fields) => {
     if(!err) {
       res.json({status: 'This dictator just won the election unanimously... Again.'});
     } else {
@@ -69,14 +68,14 @@ router.post('/', (req, res) => {
 });
 
 router.put('/:id', (req, res) => {
-  const { name } = req.body;
+  const { username } = req.body;
   const { id } = req.params;
   const query = `
     SET @id = ?;
     SET @name = ?;
-    CALL dictatorsAddOrEdit(@id, @name, @killcount);
+    CALL dictatorsAddOrEdit(@id, @username);
   `;
-  mysqlConnection.query(query, [id, name, killcount], (err, rows, fields) => {
+  mysqlConnection.query(query, [id, username], (err, rows, fields) => {
     if(!err) {
       res.json({status: 'Dictator has been changed for better or for worse'});
     } else {

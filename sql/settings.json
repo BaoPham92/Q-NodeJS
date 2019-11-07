@@ -7,7 +7,7 @@
             "isConnected": true,
             "name": "localhost",
             "password": "itHeYAlOM",
-            "port": 3306,
+            "port": 8000,
             "server": "localhost",
             "username": "root"
         }

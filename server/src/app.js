@@ -24,10 +24,10 @@ app.get('/users', async (req, res) => {
     console.log(`FETCHING USER DATA`)
 
     const connection = mysql.createConnection({
-        host: 'localhost',
+        host: 'localhost:8000',
         user: 'root',
         password: 'password',
-        database: 'test'
+        database: 'info'
     });
 
     await connection.query("SELECT * FROM users", (err, rows, fields) => {
