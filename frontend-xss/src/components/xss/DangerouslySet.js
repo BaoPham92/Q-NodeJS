@@ -1,48 +1,22 @@
-// function MyComponent() {
-//     const title = response.from.backend.title;
-//     return <div dangerouslySetInnerHTML={{__html: title}} />; // BAD - potential XSS attack could happened
-//   }
-
-
-// 1) have search bar
-// 2) Info entered into the search bar is rendered to screen <---- vector of attack
-// 3)
-
-import React, {useState} from 'react'
-import queryString from 'query-string';
-
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+// TODO: TEST HITTING AN ENDPOINT AND RETURN DATA.
 const DangerouslySet = (props) => {
 
-const [query, setQuery] = useState({
-    string:''
-});
-
-    const handleQuery = e => {
-        // e.preventDefault();
-        setQuery({[e.target.name]: e.target.value});
-    }
-
-    const handleQuerySubmit = e => {
-
-    }
+    useEffect(() => {
+        axios.get('http://localhost:5000/api/projects')
+            .then(res => console.log(res))
+            .catch(err => console.log('SOMETHING', err))
+    }, [])
 
     return (
         <div>
-            <input 
-                type="search"
-                name="string"
-                value={query.string}
-                onChange={handleQuery}
-                placeholder='Search Members'
-            />
-            <button>Search</button>
-            <div 
-            dangerouslySetInnerHTML={
-                {__html: `<div ${query.string} />`}
-            }
-            />   
+            {/* // * HERE STUDENTS WILL BE ABLE TO EDIT THE HREF IN DEV TOOLS
+                // * SUCH AS CREATING A FETCH CALL
+            */}
+            <a href={`javascript: alert("TRY USING DEV TOOLS FOR JS!!")`}>HINT! CLICK ME!!!</a>
         </div>
     )
 }
-
 export default DangerouslySet
+
