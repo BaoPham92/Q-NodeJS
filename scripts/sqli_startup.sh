@@ -1,5 +1,5 @@
 #starts
-cd Q-NodeJS/login
+cd ..
 cd login
 npm i
 npm run start

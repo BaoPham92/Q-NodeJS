@@ -1,3 +1,3 @@
-cd Q-NodeJS/frontend-sqli
+cd ..
 cd frontend-sqli
 npm start
