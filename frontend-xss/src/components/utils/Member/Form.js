@@ -35,7 +35,6 @@ const Form = ({ handleChange,
                 <h1>Register</h1>
                 <style.form onSubmit={handleSignup}>
                     <style.input onChange={handleChange} type='text' name='username' placeholder='Username' value={user.name} autoComplete="off" />
-                    <style.input onChange={handleChange} type='text' name='killcount' placeholder='Kill Count' value={user.killcount} autoComplete="off" />
                     <style.input onChange={handleChange} type='password' name='password' placeholder='Password' value={user.password} autoComplete="off" />
                     <button type='submit'>Submit</button>
                 </style.form>
@@ -47,7 +46,6 @@ const Form = ({ handleChange,
                 <h1>Edit</h1>
                 <style.form onSubmit={handleEdit}>
                     <style.input onChange={handleChange} type='text' name='username' placeholder='Username' value={user.name} autoComplete="off" />
-                    <style.input onChange={handleChange} type='text' name='killcount' placeholder='Kill Count' value={user.killcount} autoComplete="off" />
                     <style.input onChange={handleChange} type='password' name='password' placeholder='Password' value={user.password} autoComplete="off" />
                     <button type='submit'>Submit</button>
                 </style.form>
