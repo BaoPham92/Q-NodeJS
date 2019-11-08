@@ -2,13 +2,13 @@ var express = require('express');
 var router = express.Router();
 var mysql = require('mysql');
 var connection = mysql.createConnection({
-  host: 'localhost:3306',
-  user: 'user',
-  password: 'password',
+  host: localhost:3306,
+  user: user,
+  password: password,
   // host: 'localhost',
   // user: 'root',
   // password: 'password',
-  database: 'info'
+  database: info
 });
 
 connection.connect(function (err) {
