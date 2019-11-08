@@ -32,14 +32,12 @@ router.get('/users', (req, res) => {
 
 router.post('/register', function (req, res) {
   console.log("req", req.body);
-  var today = new Date();
-  var Members = {
+  // var today = new Date();
+  var users = {
     "username": req.body.username,
     "password": req.body.password,
-    "created": today,
-    "modified": today
   };
-  connection.query('INSERT INTO users SET ?', Members, function (error, results, fields) {
+  connection.query('INSERT INTO users SET ?', users, function (error, results, fields) {
     if (error) {
       console.log("error ocurred", error);
       res.send({
