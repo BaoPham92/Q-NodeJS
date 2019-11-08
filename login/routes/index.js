@@ -22,13 +22,20 @@ connection.connect(function (err) {
 
 // const jsonModifier = param => JSON.parse(JSON.stringify(param))
 
+// router.get('/users', (req, res) => {
+//   connection.query('SELECT * FROM users', (error, rows, fields) => {
+//     !!rows === true ? 
+//     res.status(200).json(rows) :
+//     res.status(404).json({ errorMessage: 'NO DATA FOR U' })
+//   })
+// })
+
 router.get('/users', (req, res) => {
   connection.query('SELECT * FROM users', (error, rows, fields) => {
-    !!rows === true ? 
-    res.status(200).json(rows) :
-    res.status(404).json({ errorMessage: 'NO DATA FOR U' })
-  })
-})
+    res.status(200).json(rows)
+  });
+});
+
 
 router.post('/register', function (req, res) {
   console.log("req", req.body);
