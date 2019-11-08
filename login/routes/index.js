@@ -3,8 +3,9 @@ var router = express.Router();
 var mysql = require('mysql');
 var connection = mysql.createConnection({
   host: 'localhost',
-  user: 'localhost',
-  password: 'itHeYAlOM',
+  port: '3306',
+  user: 'user',
+  password: 'password',
   // host: 'localhost',
   // user: 'root',
   // password: 'password',
@@ -19,26 +20,31 @@ connection.connect(function (err) {
   }
 });
 
-const jsonModifier = param => JSON.parse(JSON.stringify(param))
+// const jsonModifier = param => JSON.parse(JSON.stringify(param))
+
+// router.get('/users', (req, res) => {
+//   connection.query('SELECT * FROM users', (error, rows, fields) => {
+//     !!rows === true ? 
+//     res.status(200).json(rows) :
+//     res.status(404).json({ errorMessage: 'NO DATA FOR U' })
+//   })
+// })
 
 router.get('/users', (req, res) => {
   connection.query('SELECT * FROM users', (error, rows, fields) => {
-    !!rows === true ? 
-    res.status(200).json(jsonModifier(rows)) :
-    res.status(404).json({ errorMessage: 'NO DATA FOR U' })
-  })
-})
+    res.status(200).json(rows)
+  });
+});
+
 
 router.post('/register', function (req, res) {
   console.log("req", req.body);
-  var today = new Date();
-  var Members = {
+  // var today = new Date();
+  var users = {
     "username": req.body.username,
     "password": req.body.password,
-    "created": today,
-    "modified": today
   };
-  connection.query('INSERT INTO users SET ?', Members, function (error, results, fields) {
+  connection.query('INSERT INTO users SET ?', users, function (error, results, fields) {
     if (error) {
       console.log("error ocurred", error);
       res.send({
