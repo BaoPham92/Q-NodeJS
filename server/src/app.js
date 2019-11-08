@@ -26,8 +26,8 @@ app.get('/users', async (req, res) => {
     const connection = mysql.createConnection({
         host: 'localhost',
         user: 'root',
-        password: 'password',
-        database: 'test'
+        password: 'itHeYAlOM',
+        database: 'info'
     });
 
     await connection.query("SELECT * FROM users", (err, rows, fields) => {

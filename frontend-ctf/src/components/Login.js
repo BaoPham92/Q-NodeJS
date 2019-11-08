@@ -40,8 +40,8 @@ const Login = (props) => {
             .then(() => {
                 history.push("/members")
             })
-            .catch(err => {
-                alert(`There was an error logging in: ${err}`)
+            .catch(() => {
+                alert(`error: Localhost:${port} says: This user was not found in users.`)
             })
             // localStorage.setItem("token", "tempToken");
             // history.push("/members");
