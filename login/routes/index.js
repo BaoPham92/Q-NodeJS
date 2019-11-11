@@ -6,9 +6,6 @@ var connection = mysql.createConnection({
   port: '3306',
   user: 'user',
   password: 'password',
-  // host: 'localhost',
-  // user: 'root',
-  // password: 'password',
   database: 'info'
 });
 
@@ -20,21 +17,21 @@ connection.connect(function (err) {
   }
 });
 
-// const jsonModifier = param => JSON.parse(JSON.stringify(param))
-
-// router.get('/users', (req, res) => {
-//   connection.query('SELECT * FROM users', (error, rows, fields) => {
-//     !!rows === true ? 
-//     res.status(200).json(rows) :
-//     res.status(404).json({ errorMessage: 'NO DATA FOR U' })
-//   })
-// })
+const jsonModifier = param => JSON.parse(JSON.stringify(param))
 
 router.get('/users', (req, res) => {
   connection.query('SELECT * FROM users', (error, rows, fields) => {
-    res.status(200).json(rows)
-  });
-});
+    !!rows === true ? 
+    res.status(200).json(jsonModifier(rows)) :
+    res.status(404).json({ errorMessage: 'NO DATA FOR U' })
+  })
+})
+
+// router.get('/users', (req, res) => {
+//   connection.query('SELECT * FROM users', (error, rows, fields) => {
+//     res.status(200).json(rows)
+//   });
+// });
 
 
 router.post('/register', function (req, res) {
