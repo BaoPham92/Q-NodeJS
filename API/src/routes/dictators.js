@@ -51,14 +51,15 @@ router.delete('/:id', (req, res) => {
 });
 
 router.post('/', cors(), (req, res) => {
-  const {id, name} = req.body;
-  console.log(id, name);
+  const {id, name, password} = req.body;
+  console.log(id, name, password);
   const query = `
     SET @id = ?;
-    SET @username = ?;
+    SET @name = ?;
+    SET @password = ?;
     CALL dictatorsAddOrEdit(@id, @name);
   `;
-  mysqlConnection.query(query, [id, name], (err, rows, fields) => {
+  mysqlConnection.query(query, [id, name, password], (err, rows, fields) => {
     if(!err) {
       res.json({status: 'This dictator just won the election unanimously... Again.'});
     } else {
@@ -69,14 +70,15 @@ router.post('/', cors(), (req, res) => {
 });
 
 router.put('/:id', (req, res) => {
-  const { name } = req.body;
+  const { name, password } = req.body;
   const { id } = req.params;
   const query = `
     SET @id = ?;
     SET @name = ?;
+    SET @password = ?;
     CALL dictatorsAddOrEdit(@id, @name);
   `;
-  mysqlConnection.query(query, [id, name], (err, rows, fields) => {
+  mysqlConnection.query(query, [id, name, password], (err, rows, fields) => {
     if(!err) {
       res.json({status: 'Dictator has been changed for better or for worse'});
     } else {
