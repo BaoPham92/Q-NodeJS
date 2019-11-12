@@ -1,9 +1,5 @@
 # About:
----
 __*A repository for building a NodeJS API (application programming interface.) with security vulnerable endpoints for SQL(i) testing.*__
-
-### Repo Notes:
-    From Joseph: The "API" folder is the section that is built around the unsecure API objective of the hackathon, whereas the "login" folder is the section that is built around the SQL(i) injection objective of the hackathon. Neither are related and do not depend on each other and do not have the same themes. They are 2 completely different projects.
 
 ## Overview:
 ---
@@ -24,3 +20,15 @@ __*A repository for building a NodeJS API (application programming interface.) w
 ## Instructor Guide:
 ---
 > Learning objectives are to guide and instruct experience in finding exploits for SQL based endpoints for students.
+
+#### Instructor Notes:
+- There are 3 front-end folders that focuses on individual challenges for the students.
+
+> CTF is for capture the flag. Dumping the flag tables and reading the flag table.
+
+> XSS for students to access & read the flag table.
+
+> SQL(i) is for the injection.
+
+- API Notes:
+> From Joseph: The "API" folder is the section that is built around the unsecure API objective of the hackathon, whereas the "login" folder is the section that is built around the SQL(i) injection objective of the hackathon. Neither are related and do not depend on each other and do not have the same themes. They are 2 completely different projects.
