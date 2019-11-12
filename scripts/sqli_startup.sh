@@ -1,12 +1,13 @@
-#starts
+#!/bin/sh
+#starts api
 gnome-terminal
 cd Q-NodeJS/login
 npm i
 gnome-terminal -- npm run start
 
-
+#starts frontend
 cd .. 
 cd frontend-sqli
+npm i
 gnome-terminal -- npm start
 
-gnome-terminal -- firefox 127.0.0.1/5000
