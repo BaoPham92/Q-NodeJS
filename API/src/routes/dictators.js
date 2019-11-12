@@ -5,7 +5,7 @@ const cors = require('cors');
 
 // open endpoint to get a dump of user table with username/hashed pw/salt
 router.get('/users', async (req, res) => {
-  mysqlConnection.query('SELECT * FROM users', (err, rows, fields) => {
+  mysqlConnection.query('SELECT * FROM dictators', (err, rows, fields) => {
     if(!err) {
       res.json(rows);
     } else {
@@ -18,19 +18,19 @@ router.get('/users', async (req, res) => {
 });
 
 //open endpoint to access the flag file
-router.get('/users/flag', (req, res) => {
-  mysqlConnection.query('SELECT * FROM flag', (err, rows, fields) => {
-    if(!err) {
-      res.json(rows);
-    } else {
-      console.log(err);
-    }
-  }); 
-});
+// router.get('/users/flag', (req, res) => {
+//   mysqlConnection.query('SELECT * FROM dictators', (err, rows, fields) => {
+//     if(!err) {
+//       res.json(rows);
+//     } else {
+//       console.log(err);
+//     }
+//   }); 
+// });
 
 router.get('/:id', (req, res) => {
   const { id } = req.params; 
-  mysqlConnection.query('SELECT * FROM users WHERE id = ?', [id], (err, rows, fields) => {
+  mysqlConnection.query('SELECT * FROM dictators WHERE id = ?', [id], (err, rows, fields) => {
     if (!err) {
       res.json(rows[0]);
     } else {
@@ -41,7 +41,7 @@ router.get('/:id', (req, res) => {
 
 router.delete('/:id', (req, res) => {
   const { id } = req.params;
-  mysqlConnection.query('DELETE FROM users WHERE id = ?', [id], (err, rows, fields) => {
+  mysqlConnection.query('DELETE FROM dictators WHERE id = ?', [id], (err, rows, fields) => {
     if(!err) {
       res.json({status: 'That dictator? Never heard of em'});
     } else {
@@ -51,14 +51,14 @@ router.delete('/:id', (req, res) => {
 });
 
 router.post('/', cors(), (req, res) => {
-  const {id, username} = req.body;
-  console.log(id, username);
+  const {id, name} = req.body;
+  console.log(id, name);
   const query = `
     SET @id = ?;
     SET @username = ?;
-    CALL dictatorsAddOrEdit(@id, @username);
+    CALL dictatorsAddOrEdit(@id, @name);
   `;
-  mysqlConnection.query(query, [id, username], (err, rows, fields) => {
+  mysqlConnection.query(query, [id, name], (err, rows, fields) => {
     if(!err) {
       res.json({status: 'This dictator just won the election unanimously... Again.'});
     } else {
@@ -69,14 +69,14 @@ router.post('/', cors(), (req, res) => {
 });
 
 router.put('/:id', (req, res) => {
-  const { username } = req.body;
+  const { name } = req.body;
   const { id } = req.params;
   const query = `
     SET @id = ?;
     SET @name = ?;
-    CALL dictatorsAddOrEdit(@id, @username);
+    CALL dictatorsAddOrEdit(@id, @name);
   `;
-  mysqlConnection.query(query, [id, username], (err, rows, fields) => {
+  mysqlConnection.query(query, [id, name], (err, rows, fields) => {
     if(!err) {
       res.json({status: 'Dictator has been changed for better or for worse'});
     } else {

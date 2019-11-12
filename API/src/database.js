@@ -5,7 +5,7 @@ const mysqlConnection = mysql.createConnection({
   port: '3306',
   user: 'user',
   password: 'password',
-  database: 'info',
+  database: 'dictatorship',
   multipleStatements: true
 });
 
