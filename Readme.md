@@ -3,7 +3,7 @@
 __*A repository for building a NodeJS API (application programming interface.) with security vulnerable endpoints for SQL(i) testing.*__
 
 ### Repo Notes:
-<pre styles="white-space: pre-wrap !important;">
+<pre style="white-space: pre-wrap !important;">
 From Joseph: The "API" folder is the section that is built around the unsecure API objective of the hackathon, whereas the "login" folder is the section that is built around the SQL(i) injection objective of the hackathon. Neither are related and do not depend on each other and do not have the same themes. They are 2 completely different projects.
 </pre>
 
@@ -11,7 +11,7 @@ From Joseph: The "API" folder is the section that is built around the unsecure A
 ---
 
 #### The gist:
-<pre styles="white-space: pre-wrap !important;">
+<pre style="white-space: pre-wrap !important;">
 Containing a minimum of 6 endpoints, there are a couple of endpoints that are vulnerable (not sanitized).
 
 Participants are supplied with the objective of creating a SQL(injection) on a vulnerable endpoint that they must find.
