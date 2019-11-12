@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+const cors = require('cors');
 var mysql = require('mysql');
 var connection = mysql.createConnection({
   host: 'localhost',
@@ -27,14 +28,14 @@ router.get('/users', (req, res) => {
   });
 });
 
-// router.get('/users', (req, res) => {
-//   connection.query('SELECT * FROM users', (error, rows, fields) => {
-//     res.status(200).json(rows)
-//   });
-// });
+router.get('/users', (req, res) => {
+  connection.query('SELECT * FROM users', (error, rows, fields) => {
+    res.status(200).json(rows)
+  });
+});
 
 
-router.post('/register', function (req, res) {
+router.post('/register', cors(), function (req, res) {
   console.log("req", req.body);
   // var today = new Date();
   var users = {
@@ -61,8 +62,10 @@ router.post('/register', function (req, res) {
 
 router.post('/login', function (req, res) {
 
-  var username = req.body.username;
-  var password = req.body.password;
+  // var username = req.body.username;
+  // var password = req.body.password;
+  let {username, password} = req.body;
+
   connection.query('SELECT * FROM users WHERE username = ?', [username], function (error, results, fields) {
     if (error) {
       // console.log("error ocurred",error);
@@ -82,14 +85,14 @@ router.post('/login', function (req, res) {
         else {
           res.send({
             "code": 204,
-            "success": "Email and password does not match"
+            "success": "username and password does not match"
           });
         }
       }
       else {
         res.send({
           "code": 204,
-          "success": "Email does not exist"
+          "success": "username does not exist"
         });
       }
     }
