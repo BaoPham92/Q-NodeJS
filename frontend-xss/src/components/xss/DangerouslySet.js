@@ -1,12 +1,16 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-// TODO: TEST HITTING AN ENDPOINT AND RETURN DATA.
 const DangerouslySet = (props) => {
 
     useEffect(() => {
-        axios.get('http://localhost:5000/api/projects')
-            .then(res => console.log(res))
-            .catch(err => console.log('SOMETHING', err))
+        // * THIS IS A WORKING JAVASCRIPT FETCH A USER CAN WRITE OUT IN THE THE HTML FOR THE A TAG TO MAKE A SUCCESSFUL CALL.
+        fetch('http://localhost:5000/', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+            .then(async res => console.log(await res.json()))
+            .catch(async err => console.log('SOMETHING', await err.json()))
     }, [])
 
     return (

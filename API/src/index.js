@@ -22,8 +22,13 @@ app.use('/api', router);
 
 // TODO: CLEAN UP THIS REQ LATER. THIS IS HERE USED FOR THE XSS FROM XSS FRONT-END
 app.get('/', async (req, res) => {
+<<<<<<< HEAD
   return await res.status(200).json({ message: res })
 });
+=======
+  return await res.status(200).json({ message: 'endpoint reached!' })
+})
+>>>>>>> d019019cf803ed5f335e22036f7138fbc8e90eac
 
 app.listen(app.get('port'), () => {
   console.log(`Server on port ${app.get('port')}`);
