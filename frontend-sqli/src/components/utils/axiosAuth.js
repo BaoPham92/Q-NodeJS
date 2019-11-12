@@ -1,7 +1,8 @@
+import React from 'react';
 import axios from 'axios';
 
 // * CUSTOM AXIOS INSTANCE
-const axiosWithAuth = () => {
+export const axiosWithAuth = () => {
     const port = process.env.PORT || 5000;
     const token = localStorage.getItem('token');
 
@@ -11,7 +12,5 @@ const axiosWithAuth = () => {
             'Content-Type': 'application/json',
             'Authorization': `bearer ${token}`
         }
-    })
-}
-
-export default axiosWithAuth;
+    });
+};

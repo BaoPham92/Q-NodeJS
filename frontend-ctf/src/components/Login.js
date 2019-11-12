@@ -17,35 +17,35 @@ const Login = (props) => {
 
     const [user, setUser] = useState({
         username: '',
-        password: '',
-        killcount: '',
-    })
+        password: ''
+    });
 
     const handleChange = e => {
         e.preventDefault();
         setUser({
             ...user,
             [e.target.name]: e.target.value
-        })
-    }
+        });
+    };
 
     const handleLoginSQLI = e => {
         e.preventDefault();
-        axios.post(`http://localhost:${port}/login`, user)
+        axios.post("http://localhost:5000/", user)
             .then(response => {
                 console.log(response)
                 //getting a token or some such
-                localStorage.setItem("token", "tempToken");
+                // localStorage.setItem("token", "tempToken");
             })
             .then(() => {
                 history.push("/members")
             })
-            .catch(() => {
-                alert(`error: Localhost:${port} says: This user was not found in users.`)
-            })
-            // localStorage.setItem("token", "tempToken");
-            // history.push("/members");
-    }
+            .catch(err => {
+                // localStorage.setItem("token", "tempToken");
+                history.push("/members");
+                // alert(`There was an error logging in: ${err}`)
+            });
+            
+    };
 
     // const handleSignup
 
@@ -70,7 +70,7 @@ const Login = (props) => {
     const handleEdit = e => {
         e.preventDefault();
 
-        axios.put(`localhost:${port}:${user.id}`, user)
+        axios.put(`localhost:${port}/${user.id}`, user)
             .then(response => {
                 console.log(response)
                 history.push('/login')

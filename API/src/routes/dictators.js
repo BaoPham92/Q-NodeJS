@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const mysqlConnection  = require('../database.js');
+const cors = require('cors');
 
 // open endpoint to get a dump of user table with username/hashed pw/salt
 router.get('/users', async (req, res) => {
@@ -49,7 +50,7 @@ router.delete('/:id', (req, res) => {
   });
 });
 
-router.post('/', (req, res) => {
+router.post('/', cors(), (req, res) => {
   const {id, username} = req.body;
   console.log(id, username);
   const query = `
