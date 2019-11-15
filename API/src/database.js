@@ -2,7 +2,8 @@ const mysql = require('mysql');
 
 const mysqlConnection = mysql.createConnection({
   host: 'localhost',
-  user: 'root',
+  port: '3306',
+  user: 'user',
   password: 'password',
   database: 'dictatorship',
   multipleStatements: true
@@ -18,4 +19,4 @@ mysqlConnection.connect(function (err) {
 });
 
 module.exports = mysqlConnection;
-//do edit with the proper CNS database info
+

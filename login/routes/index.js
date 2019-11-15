@@ -1,10 +1,12 @@
 var express = require('express');
 var router = express.Router();
+const cors = require('cors');
 var mysql = require('mysql');
 var connection = mysql.createConnection({
   host: 'localhost',
-  user: 'localhost',
-  password: 'itHeYAlOM',
+  port: '3306',
+  user: 'user',
+  password: 'password',
   database: 'info'
 });
 
@@ -16,27 +18,31 @@ connection.connect(function (err) {
   }
 });
 
-const jsonModifier = param => JSON.parse(JSON.stringify(param))
+const jsonModifier = param => JSON.parse(JSON.stringify(param));
 
 router.get('/users', (req, res) => {
-  connection.query('SELECT * FROM Members', (error, rows, fields) => {
+  connection.query('SELECT * FROM users', (error, rows, fields) => {
     !!rows === true ? 
     res.status(200).json(jsonModifier(rows)) :
     res.status(404).json({ errorMessage: 'NO DATA FOR U' })
-  })
-})
+  });
+});
 
-router.post('/register', function (req, res) {
+router.get('/users', (req, res) => {
+  connection.query('SELECT * FROM users', (error, rows, fields) => {
+    res.status(200).json(rows)
+  });
+});
+
+
+router.post('/register', cors(), function (req, res) {
   console.log("req", req.body);
-  var today = new Date();
-  var Members = {
-    "name": req.body.name,
-    "email": req.body.email,
+  // var today = new Date();
+  var users = {
+    "username": req.body.username,
     "password": req.body.password,
-    "created": today,
-    "modified": today
   };
-  connection.query('INSERT INTO Members SET ?', Members, function (error, results, fields) {
+  connection.query('INSERT INTO users SET ?', users, function (error, results, fields) {
     if (error) {
       console.log("error ocurred", error);
       res.send({
@@ -56,9 +62,11 @@ router.post('/register', function (req, res) {
 
 router.post('/login', function (req, res) {
 
-  var email = req.body.email;
-  var password = req.body.password;
-  connection.query('SELECT * FROM Members WHERE email = ?', [email], function (error, results, fields) {
+  // var username = req.body.username;
+  // var password = req.body.password;
+  let {username, password} = req.body;
+
+  connection.query('SELECT * FROM users WHERE username = ?', [username], function (error, results, fields) {
     if (error) {
       // console.log("error ocurred",error);
       res.send({
@@ -77,14 +85,14 @@ router.post('/login', function (req, res) {
         else {
           res.send({
             "code": 204,
-            "success": "Email and password does not match"
+            "success": "username and password does not match"
           });
         }
       }
       else {
         res.send({
           "code": 204,
-          "success": "Email does not exist"
+          "success": "username does not exist"
         });
       }
     }

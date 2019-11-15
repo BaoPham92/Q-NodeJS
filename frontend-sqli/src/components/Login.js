@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Form from './utils/Member/Form';
 import styled from 'styled-components';
+import {axiosWithAuth} from './utils/axiosAuth.js';
 
 const FormSection = styled.section`
     height: 50vh;
@@ -17,25 +18,24 @@ const Login = (props) => {
 
     const [user, setUser] = useState({
         username: '',
-        password: '',
-        killcount: '',
-    })
+        password: ''
+    });
 
     const handleChange = e => {
         e.preventDefault();
         setUser({
             ...user,
             [e.target.name]: e.target.value
-        })
-    }
+        });
+    };
 
     const handleLoginSQLI = e => {
         e.preventDefault();
-        axios.post(`http://localhost:${port}/login`, user)
+        axios.post("http://localhost:5000/login", user)
             .then(response => {
                 console.log(response)
                 //getting a token or some such
-                localStorage.setItem("token", "tempToken");
+                // localStorage.setItem("token", "tempToken");
             })
             .then(() => {
                 history.push("/members")
@@ -44,9 +44,9 @@ const Login = (props) => {
                 localStorage.setItem("token", "tempToken");
                 history.push("/members");
                 // alert(`There was an error logging in: ${err}`)
-            })
+            });
             
-    }
+    };
 
     // const handleSignup
 

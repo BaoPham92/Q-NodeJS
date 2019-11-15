@@ -1,48 +1,26 @@
-// function MyComponent() {
-//     const title = response.from.backend.title;
-//     return <div dangerouslySetInnerHTML={{__html: title}} />; // BAD - potential XSS attack could happened
-//   }
-
-
-// 1) have search bar
-// 2) Info entered into the search bar is rendered to screen <---- vector of attack
-// 3)
-
-import React, {useState} from 'react'
-import queryString from 'query-string';
-
+import React, { useEffect, useState } from 'react';
 const DangerouslySet = (props) => {
 
-const [query, setQuery] = useState({
-    string:''
-});
-
-    const handleQuery = e => {
-        // e.preventDefault();
-        setQuery({[e.target.name]: e.target.value});
-    }
-
-    const handleQuerySubmit = e => {
-
-    }
+    useEffect(() => {
+        // * THIS IS A WORKING JAVASCRIPT FETCH A USER CAN WRITE OUT IN THE THE HTML FOR THE A TAG TO MAKE A SUCCESSFUL CALL.
+        fetch('http://localhost:5000/', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+            .then(async res => console.log(await res.json()))
+            .catch(async err => console.log('SOMETHING', await err.json()))
+    }, [])
 
     return (
         <div>
-            <input 
-                type="search"
-                name="string"
-                value={query.string}
-                onChange={handleQuery}
-                placeholder='Search Members'
-            />
-            <button>Search</button>
-            <div 
-            dangerouslySetInnerHTML={
-                {__html: `<div ${query.string} />`}
-            }
-            />   
+            {/* // * HERE STUDENTS WILL BE ABLE TO EDIT THE HREF IN DEV TOOLS
+                // * SUCH AS CREATING A FETCH CALL
+            */}
+            <a href={`javascript: alert("TRY USING DEV TOOLS FOR JS!!")`}>HINT! CLICK ME!!!</a>
         </div>
     )
 }
-
 export default DangerouslySet
+

@@ -1,9 +1,10 @@
 const express = require('express');
 const router = express.Router();
-
 const mysqlConnection  = require('../database.js');
+const cors = require('cors');
 
-router.get('/', (req, res) => {
+// open endpoint to get a dump of user table with username/hashed pw/salt
+router.get('/users', async (req, res) => {
   mysqlConnection.query('SELECT * FROM dictators', (err, rows, fields) => {
     if(!err) {
       res.json(rows);
@@ -11,7 +12,21 @@ router.get('/', (req, res) => {
       console.log(err);
     }
   });  
+    // console.log('USE ME', req)
+    // await res.status(200).json({ Truth: `YOU HIT THE USER ENDPOINT` })
+    // res.end()
 });
+
+//open endpoint to access the flag file
+// router.get('/users/flag', (req, res) => {
+//   mysqlConnection.query('SELECT * FROM dictators', (err, rows, fields) => {
+//     if(!err) {
+//       res.json(rows);
+//     } else {
+//       console.log(err);
+//     }
+//   }); 
+// });
 
 router.get('/:id', (req, res) => {
   const { id } = req.params; 
@@ -35,16 +50,16 @@ router.delete('/:id', (req, res) => {
   });
 });
 
-router.post('/', (req, res) => {
-  const {id, name, killcount} = req.body;
-  console.log(id, name, killcount);
+router.post('/', cors(), (req, res) => {
+  const {id, name, password} = req.body;
+  console.log(id, name, password);
   const query = `
     SET @id = ?;
     SET @name = ?;
-    SET @killcount = ?;
-    CALL dictatorsAddOrEdit(@id, @name, @killcount);
+    SET @password = ?;
+    CALL dictatorsAddOrEdit(@id, @name);
   `;
-  mysqlConnection.query(query, [id, name, killcount], (err, rows, fields) => {
+  mysqlConnection.query(query, [id, name, password], (err, rows, fields) => {
     if(!err) {
       res.json({status: 'This dictator just won the election unanimously... Again.'});
     } else {
@@ -55,15 +70,15 @@ router.post('/', (req, res) => {
 });
 
 router.put('/:id', (req, res) => {
-  const { name, killcount } = req.body;
+  const { name, password } = req.body;
   const { id } = req.params;
   const query = `
     SET @id = ?;
     SET @name = ?;
-    SET @killcount = ?;
-    CALL dictatorsAddOrEdit(@id, @name, @killcount);
+    SET @password = ?;
+    CALL dictatorsAddOrEdit(@id, @name);
   `;
-  mysqlConnection.query(query, [id, name, killcount], (err, rows, fields) => {
+  mysqlConnection.query(query, [id, name, password], (err, rows, fields) => {
     if(!err) {
       res.json({status: 'Dictator has been changed for better or for worse'});
     } else {
